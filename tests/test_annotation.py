@@ -49,3 +49,8 @@ def test_dataset_rejects_unlisted_class(dataset: AnnotationDataset) -> None:
 def test_dataset_rejects_duplicate_image_paths(dataset: AnnotationDataset) -> None:
     with pytest.raises(ValueError, match="image paths"):
         AnnotationDataset(images=(dataset.images[0], dataset.images[0]), class_names=dataset.class_names)
+
+
+def test_dataset_rejects_unknown_class_lookup(dataset: AnnotationDataset) -> None:
+    with pytest.raises(KeyError, match="unknown class"):
+        dataset.class_index("bird")

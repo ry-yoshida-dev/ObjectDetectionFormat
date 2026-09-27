@@ -1,5 +1,6 @@
 from collections.abc import Iterable
 from dataclasses import dataclass
+from functools import cached_property
 
 from .image_annotation import ImageAnnotation
 
@@ -82,6 +83,11 @@ class AnnotationDataset:
         int
             Index into ``class_names``.
         """
-        if class_name not in self.class_names:
+        class_indices: dict[str, int] = self._class_indices
+        if class_name not in class_indices:
             raise KeyError(f"unknown class: {class_name!r}")
-        return self.class_names.index(class_name)
+        return class_indices[class_name]
+
+    @cached_property
+    def _class_indices(self) -> dict[str, int]:
+        return {class_name: index for index, class_name in enumerate(self.class_names)}
