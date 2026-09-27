@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "object-detection-format"
+version = "0.0.1"
+authors = [
+  { name = "Ryuto Yoshida" },
+]
+description = "Export geometry bounding-box annotations to COCO, YOLO, Pascal VOC, LabelMe and CreateML formats."
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Typing :: Typed",
+]
+dependencies = [
+    "numpy",
+    "geometry @ git+https://github.com/ry-yoshida-dev/Geometry.git",
+    "file-handler @ git+https://github.com/ry-yoshida-dev/FileHandler.git",
+]
+
+[project.urls]
+Homepage = "https://github.com/ry-yoshida-dev/ObjectDetectionFormat"
+"Bug Tracker" = "https://github.com/ry-yoshida-dev/ObjectDetectionFormat/issues"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "mypy", "basedpyright", "ruff", "types-shapely"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+object_detection_format = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.mypy]
+strict = true
+mypy_path = "src"
+
+[tool.pyright]
+include = ["src", "tests"]
+typeCheckingMode = "strict"
+reportMissingTypeStubs = false
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
