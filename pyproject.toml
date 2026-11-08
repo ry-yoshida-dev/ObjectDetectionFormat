@@ -18,7 +18,7 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = [
-    "numpy",
+    "numpy>=2.0",
     "geometry @ git+https://github.com/ry-yoshida-dev/Geometry.git",
     "file-handler @ git+https://github.com/ry-yoshida-dev/FileHandler.git",
 ]
@@ -28,7 +28,7 @@ Homepage = "https://github.com/ry-yoshida-dev/ObjectDetectionFormat"
 "Bug Tracker" = "https://github.com/ry-yoshida-dev/ObjectDetectionFormat/issues"
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0", "mypy", "basedpyright", "ruff", "types-shapely"]
+dev = ["pytest>=8.0", "mypy>=2.4", "basedpyright>=1.40", "ruff>=0.17"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -52,3 +52,6 @@ reportMissingTypeStubs = false
 [tool.ruff]
 line-length = 120
 target-version = "py312"
+
+[tool.uv]
+exclude-newer = "7 days"
