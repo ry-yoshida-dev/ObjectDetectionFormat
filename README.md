@@ -21,10 +21,9 @@ See [src/object_detection_format](src/object_detection_format/README.md) for the
 
 ```bash
 pip install git+https://github.com/ry-yoshida-dev/ObjectDetectionFormat.git
-pip install -e ".[dev]"
 ```
 
-## Examples
+## Usage
 
 ```python
 from pathlib import Path
