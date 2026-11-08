@@ -112,12 +112,12 @@ class YoloWriter(PerImageAnnotationWriter):
         tuple[Path, ...]
             Label files in image order followed by ``classes.txt``.
         """
-        class_file_path: Path = output_directory / self.class_file_name
         if any(
             self.label_path(image, output_directory).name.casefold() == self.class_file_name.casefold()
             for image in dataset.images
         ):
             raise ValueError(f"an image stem collides with {self.class_file_name}")
+        class_file_path: Path = output_directory / self.class_file_name
         label_paths: tuple[Path, ...] = super().write(dataset, output_directory)
         self._write_lines(list(dataset.class_names), class_file_path)
         return (*label_paths, class_file_path)
