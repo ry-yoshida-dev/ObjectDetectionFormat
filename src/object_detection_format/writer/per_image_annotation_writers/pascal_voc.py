@@ -4,7 +4,7 @@ from xml.etree import ElementTree
 from geometry import Box2D
 
 from ...annotation import AnnotationDataset, ImageAnnotation, ObjectAnnotation
-from ..per_image import PerImageAnnotationWriter
+from ..per_image_annotation_writer import PerImageAnnotationWriter
 
 
 class PascalVocWriter(PerImageAnnotationWriter):

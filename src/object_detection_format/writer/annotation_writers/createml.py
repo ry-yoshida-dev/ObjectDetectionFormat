@@ -4,7 +4,7 @@ from file_handler import FileHandler
 from geometry import Box2DFormat
 
 from ...annotation import AnnotationDataset, ObjectAnnotation
-from ..base import AnnotationWriter
+from ..annotation_writer import AnnotationWriter
 from ..json_value import JsonValue
 
 

@@ -10,9 +10,10 @@ Per-image formats name each label file after the image stem and refuse to write 
 
 | Component | Description |
 | --------- | ----------- |
-| [base.py](./base.py) | `AnnotationWriter`: abstract writer. |
-| [per_image.py](./per_image.py) | `PerImageAnnotationWriter`: base for formats with one label file per image, written by `write_label`. |
-| [formats/](./formats/README.md) | Concrete writers for COCO, YOLO, Pascal VOC, LabelMe and Create ML. |
+| [annotation_writer.py](./annotation_writer.py) | `AnnotationWriter`: abstract writer. |
+| [annotation_writers/](./annotation_writers/README.md) | Single-file writers for COCO and Create ML. |
+| [per_image_annotation_writer.py](./per_image_annotation_writer.py) | `PerImageAnnotationWriter`: abstract writer of one label file per image. |
+| [per_image_annotation_writers/](./per_image_annotation_writers/README.md) | Per-image writers for YOLO, Pascal VOC and LabelMe. |
 | [annotation_format.py](./annotation_format.py) | `AnnotationFormat`: supported formats, display names and default writers. |
 | [json_value.py](./json_value.py) | `JsonValue`: recursive type of JSON documents. |
 

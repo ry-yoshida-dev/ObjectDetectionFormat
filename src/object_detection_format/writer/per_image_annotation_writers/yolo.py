@@ -4,7 +4,7 @@ from geometry import Box2DFormat
 from txt_writer import TxtWriter
 
 from ...annotation import AnnotationDataset, ImageAnnotation, ObjectAnnotation
-from ..per_image import PerImageAnnotationWriter
+from ..per_image_annotation_writer import PerImageAnnotationWriter
 
 
 class YoloWriter(PerImageAnnotationWriter):

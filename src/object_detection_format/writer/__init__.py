@@ -1,8 +1,9 @@
 from .annotation_format import AnnotationFormat
-from .base import AnnotationWriter
-from .formats import CocoWriter, CreateMlWriter, LabelMeWriter, PascalVocWriter, YoloWriter
+from .annotation_writer import AnnotationWriter
+from .annotation_writers import CocoWriter, CreateMlWriter
 from .json_value import JsonValue
-from .per_image import PerImageAnnotationWriter
+from .per_image_annotation_writer import PerImageAnnotationWriter
+from .per_image_annotation_writers import LabelMeWriter, PascalVocWriter, YoloWriter
 
 __all__ = [
     "AnnotationFormat",
